@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - NavAI</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body>
+
+    <aside class="sidebar">
+        <div class="conteiner-logo">
+            <div class="chat-logo">
+                <a href="/" class="new-chat">
+                    <i class="fa-solid fa-plus"></i> Novo Chat
+                </a>
+                <a href="#" class="search">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </a>
+            </div>
+        </div>
+
+        <nav class="sidebar-nav">
+            <ul>
+                <li>
+                    <a href="#" class="btn-conversation">
+                        <i class="fa-regular fa-message"></i>
+                        <span>Vida Local</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="btn-conversation active">
+                        <i class="fa-regular fa-message"></i>
+                        <span>Transporte & Trânsito</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="btn-conversation">
+                        <i class="fa-regular fa-message"></i>
+                        <span>Custo de Vida</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="sidebar-footer">
+            <a href="#" class="sidebar-footer-link">
+                <i class="fa-solid fa-gear"></i>
+                <span>Configurações</span>
+            </a>
+            <a href="#" class="sidebar-footer-link profile">
+                <img src="https://i.pravatar.cc/30" alt="Avatar do usuário">
+                <span>Usuário</span>
+            </a>
+        </div>
+    </aside>
+
+    <main role="main" class="main-chat">
+        @RenderBody()
+    </main>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

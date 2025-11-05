@@ -1,0 +1,36 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Analisador de Locais";
+}
+
+<div class="chat-messages">
+
+    @if (string.IsNullOrEmpty(Model.UserQuestion))
+    {
+        <div class="text-center">
+            <h1>Analisador de Qualidade de Vida</h1>
+            <p>Descreva as características de um lugar (trânsito, segurança, etc.) e a IA fará uma análise.</p>
+        </div>
+    }
+
+    @if (!string.IsNullOrEmpty(Model.UserQuestion))
+    {
+        <p class="user-message">@Model.UserQuestion</p>
+
+        <div class="bot-response">
+            <p>@Model.BotResponse</p>
+            <small class="confidence">Confiança da Análise: @Model.ResponseConfidence</small>
+        </div>
+    }
+
+</div>  
+
+<div class="container-form">
+    <form method="post">
+        <textarea asp-for="InputText" class="form-control" rows="1" placeholder="Ex: 'Cidade limpa e com transporte eficiente'"></textarea>
+        <button type="submit" class="btn">
+            <i class="fa-solid fa-paper-plane"></i>
+        </button>
+    </form>
+</div> 
