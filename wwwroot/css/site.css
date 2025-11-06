@@ -307,3 +307,58 @@ main.main-chat p {
     color: #888;
     text-align: right;
 }
+
+/* === Adicione ao final do seu site.css === */
+
+.feedback-container {
+    margin-top: 15px;
+    padding-top: 10px;
+    border-top: 1px solid #e0e0e0; /* Ajuste a cor conforme seu tema */
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espaçamento entre os elementos */
+}
+
+.feedback-pergunta {
+    font-size: 0.9em;
+    color: #555; /* Ajuste a cor */
+}
+
+.btn-feedback {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #777; /* Ajuste a cor */
+    font-size: 1.1em;
+    padding: 2px 4px;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+    .btn-feedback:hover {
+        color: #111; /* Ajuste a cor */
+        background-color: #f0f0f0; /* Ajuste a cor */
+    }
+
+    /* Estilo para o botão "Sim" (like) ao passar o mouse */
+    .btn-feedback[data-util="true"]:hover {
+        color: #007bff; /* Azul */
+    }
+
+    /* Estilo para o botão "Não" (dislike) ao passar o mouse */
+    .btn-feedback[data-util="false"]:hover {
+        color: #dc3545; /* Vermelho */
+    }
+
+    /* Estilo para botões desabilitados */
+    .btn-feedback:disabled,
+    .btn-feedback.disabled {
+        cursor: not-allowed;
+        opacity: 0.5;
+    }
+
+.feedback-agradecimento {
+    font-size: 0.9em;
+    color: #28a745; /* Verde */
+    font-weight: 500;
+}

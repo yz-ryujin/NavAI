@@ -1,4 +1,77 @@
-﻿// Please see documentation at https://learn.microsoft.com/aspnet/core/client-side/bundling-and-minification
-// for details on configuring this project to bundle and minify static web assets.
+﻿
+document.addEventListener("DOMContentLoaded", function () {
 
-// Write your JavaScript code.
+    const feedbackButtons = document.querySelectorAll(".btn-feedback");
+
+    feedbackButtons.forEach(button => {
+        button.addEventListener("click", function () {
+
+            const container = this.closest(".feedback-container");
+
+            const prompt = container.getAttribute("data-prompt");
+            const response = container.getAttribute("data-response");
+            const isUseful = this.getAttribute("data-util") === "true";
+
+            const feedbackPergunta = container.querySelector(".feedback-pergunta");
+            const feedbackAgradecimento = container.querySelector(".feedback-agradecimento");
+            const todosBotoesDoContainer = container.querySelectorAll(".btn-feedback");
+
+            sendFeedbackToBackend(prompt, response, isUseful);
+
+            if (feedbackPergunta) {
+                feedbackPergunta.style.display = "none";
+            }
+
+            if (feedbackAgradecimento) {
+                feedbackAgradecimento.style.display = "inline";
+            }
+            todosBotoesDoContainer.forEach(btn => {
+                btn.disabled = true;
+                btn.classList.add("disabled");
+            });
+        });
+    });
+
+});
+
+/**
+ * Envia os dados do feedback para o 'Handler' do Razor Page.
+ */
+async function sendFeedbackToBackend(prompt, response, isUseful) {
+
+    const feedbackData = {
+        Prompt: prompt,
+        Response: response,
+        IsUseful: isUseful
+    };
+
+    try {
+        // Encontra o Token de Verificação (essencial para segurança do Razor Pages)
+        // que o <form> gerou automaticamente.
+        const tokenInput = document.getElementsByName("__RequestVerificationToken")[0];
+
+        if (!tokenInput) {
+            console.error("Token de verificação (CSRF) não encontrado. O formulário está correto?");
+            return;
+        }
+
+        // Usamos '/Index?handler=Feedback' para chamar o método 'OnPostFeedbackAsync'
+        const fetchResponse = await fetch("/Index?handler=Feedback", { // O 'Index' é o nome da sua Page
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "RequestVerificationToken": tokenInput.value
+            },
+            body: JSON.stringify(feedbackData)
+        });
+
+        if (fetchResponse.ok) {
+            console.log("Feedback enviado com sucesso.");
+        } else {
+            console.error("Falha ao enviar feedback. Status: " + fetchResponse.status);
+        }
+
+    } catch (error) {
+        console.error("Erro de rede ao enviar feedback:", error);
+    }
+}

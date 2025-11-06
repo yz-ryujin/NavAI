@@ -21,16 +21,33 @@
         <div class="bot-response">
             <p>@Model.BotResponse</p>
             <small class="confidence">Confiança da Análise: @Model.ResponseConfidence</small>
+
+
+            <div class="feedback-container"
+                 data-prompt="@Model.UserQuestion"
+                 data-response="@Model.BotResponse">
+
+                <small class="feedback-pergunta">Esta resposta foi útil?</small>
+                <button class="btn-feedback" data-util="true" title="Resposta útil">
+                    <i class="fa-solid fa-thumbs-up"></i>
+                </button>
+                <button class="btn-feedback" data-util="false" title="Resposta não útil">
+                    <i class="fa-solid fa-thumbs-down"></i>
+                </button>
+                <span class="feedback-agradecimento" style="display: none;">Obrigado pelo feedback!</span>
+            </div>
         </div>
+
     }
 
-</div>  
+</div>
 
 <div class="container-form">
+
     <form method="post">
         <textarea asp-for="InputText" class="form-control" rows="1" placeholder="Ex: 'Cidade limpa e com transporte eficiente'"></textarea>
         <button type="submit" class="btn">
             <i class="fa-solid fa-paper-plane"></i>
         </button>
     </form>
-</div> 
+</div>

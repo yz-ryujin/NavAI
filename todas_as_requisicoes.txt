@@ -1,0 +1,25 @@
+[2025-11-05 21:07:37] (Útil: True)
+PROMPT: Cidade limpa e bem estruturada
+RESPONSE: A análise deste local é predominantemente POSITIVA.
+-----------------------------------------------
+
+[2025-11-05 21:14:14] (Útil: False)
+PROMPT: Cidade limpa e bem estruturada
+RESPONSE: A análise deste local é predominantemente POSITIVA.
+-----------------------------------------------
+
+[2025-11-05 21:23:08] (Útil: True)
+PROMPT: Cidade limpa e ruas bem estruturadas
+RESPONSE: A análise deste local é predominantemente POSITIVA.
+-----------------------------------------------
+
+[2025-11-05 21:23:57] (Útil: False)
+PROMPT: Cidade extremamente suja, e precária
+RESPONSE: A análise deste local é predominantemente POSITIVA.
+-----------------------------------------------
+
+[2025-11-05 21:28:26] (Útil: False)
+PROMPT: Aluguel muito caro e poucas opções acessíveis
+RESPONSE: A análise deste local é predominantemente NEGATIVA.
+-----------------------------------------------
+
