@@ -34,9 +34,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 
-/**
- * Envia os dados do feedback para o 'Handler' do Razor Page.
- */
 async function sendFeedbackToBackend(prompt, response, isUseful) {
 
     const feedbackData = {
@@ -46,8 +43,7 @@ async function sendFeedbackToBackend(prompt, response, isUseful) {
     };
 
     try {
-        // Encontra o Token de Verificação (essencial para segurança do Razor Pages)
-        // que o <form> gerou automaticamente.
+
         const tokenInput = document.getElementsByName("__RequestVerificationToken")[0];
 
         if (!tokenInput) {
@@ -55,8 +51,7 @@ async function sendFeedbackToBackend(prompt, response, isUseful) {
             return;
         }
 
-        // Usamos '/Index?handler=Feedback' para chamar o método 'OnPostFeedbackAsync'
-        const fetchResponse = await fetch("/Index?handler=Feedback", { // O 'Index' é o nome da sua Page
+        const fetchResponse = await fetch("/Index?handler=Feedback", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

@@ -23,3 +23,13 @@ PROMPT: Aluguel muito caro e poucas opções acessíveis
 RESPONSE: A análise deste local é predominantemente NEGATIVA.
 -----------------------------------------------
 
+[2025-12-03 19:39:09] (Útil: True)
+PROMPT: Cidade com boa infraestrutura e ruas bem sinalizadas
+RESPONSE: A análise deste local é predominantemente POSITIVA.
+-----------------------------------------------
+
+[2025-12-03 19:41:48] (Útil: False)
+PROMPT: Os parques estão abandonados e trás riscos físicos e a saúde
+RESPONSE: A análise deste local é predominantemente POSITIVA.
+-----------------------------------------------
+

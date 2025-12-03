@@ -8,3 +8,8 @@ PROMPT: Cidade limpa e ruas bem estruturadas
 RESPONSE: A análise deste local é predominantemente POSITIVA.
 -----------------------------------------------
 
+[2025-12-03 19:39:09] (Útil: True)
+PROMPT: Cidade com boa infraestrutura e ruas bem sinalizadas
+RESPONSE: A análise deste local é predominantemente POSITIVA.
+-----------------------------------------------
+
